@@ -1,0 +1,42 @@
+<div class="app">
+	<!-- <navbar user="vm.auth.user"></navbar>
+	<main ui-view></main>
+ -->
+	<md-sidenav
+    class="md-sidenav-left"
+    md-component-id="left"
+    md-is-locked-open="$mdMedia('gt-md')"
+    md-disable-backdrop
+    md-whiteframe="4"
+  >
+    <md-toolbar md-theme="default">
+      <h1 class="md-toolbar-tools">Navigation</h1>
+    </md-toolbar>
+    <md-content layout-padding>
+      
+    </md-content>
+
+  </md-sidenav>
+	
+  <md-content flex>
+		<md-nav-bar md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links" md-theme="default">
+      <md-nav-item md-nav-sref="login" name="page1">
+        Users
+        <md-icon>person</md-icon>
+      </md-nav-item>
+      <md-nav-item md-nav-sref="api" name="page2">
+        API
+        <md-icon>rss_feed</md-icon>
+      </md-nav-item>
+      <md-nav-item md-nav-sref="members" name="page3">
+        Analytics
+        <md-icon>equalizer</md-icon>
+      </md-nav-item>
+      <span flex></span>
+      <md-button ng-click="vm.close()" class="md-icon-button md-primary" hide-gt-md>
+        <md-icon>menu</md-icon>
+      </md-button>
+    </md-nav-bar>
+    <main ui-view></main>
+	</md-content>
+</div>

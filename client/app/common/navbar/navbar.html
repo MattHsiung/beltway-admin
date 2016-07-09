@@ -1,0 +1,24 @@
+<nav class="navbar">
+  <div class="logo nav-links">
+    <a ui-sref="home" class="nav-link" ui-sref-active="isActive">
+      <img ng-src="http://s32.postimg.org/kmz8cz8xh/FSGX_logo_lg.png">
+    </a>
+  </div>
+  <div class="nav-links">
+    <a ui-sref="home" class="nav-link" ui-sref-active="isActive">
+      Home
+    </a>
+    <a ng-if="!vm.user" ui-sref="login" class="nav-link" ui-sref-active="isActive">
+      Login
+    </a>
+    <a ng-if="vm.user" href="#" ng-click="vm.logout()" class="nav-link">
+      Logout
+    </a>
+    <a ui-sref="members" class="nav-link" ui-sref-active="isActive">
+      MembersOnly
+    </a>   
+    <a ng-if="vm.user" class="nav-link accent">
+      {{vm.user.displayName}}
+    </a>   
+  </div>
+</nav>

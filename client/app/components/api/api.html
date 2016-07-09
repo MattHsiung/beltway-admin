@@ -1,0 +1,25 @@
+<div class="api">
+	<md-tabs md-dynamic-height md-border-bottom>
+    <md-tab 
+      ng-repeat="(category, data) in ::vm.data.bio track by $id(category)" 
+      label="{{::category}}"
+    >
+      <md-content class="md-padding" layout="column" layout-wrap>
+        <md-card 
+          md-theme="default" 
+          md-theme-watch 
+          ng-repeat="(title, info) in ::data track by $id(title)"
+        >
+          <md-card-title class="md-default">
+            <md-card-title-text>
+              <span class="md-headline">{{::title}}</span>
+            </md-card-title-text>
+          </md-card-title>    
+          <md-card-content>
+            <p>{{::info}}</p>
+          </md-card-content>
+        </md-card>
+      </md-content>
+    </md-tab>
+  </md-tabs>
+</div>

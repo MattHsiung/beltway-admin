@@ -1,0 +1,17 @@
+div.api
+	md-tabs.md-accent(md-selected="data.selectedIndex", md-align-tabs="{{data.bottom ? 'bottom' : 'top'}}")
+  	md-tab(id="tab1")
+    	md-tab-label Item One
+	    	md-tab-body View for Item #1 
+	    		br data.selectedIndex = 0;
+      
+    md-tab(id="tab2", ng-disabled="data.secondLocked")
+      md-tab-label {{data.secondLabel}}
+        md-tab-body View for Item #2 
+          br data.selectedIndex = 1;
+
+      <md-tab id="tab3">
+        <md-tab-label>Item Three</md-tab-label>
+        <md-tab-body>
+          View 
+  pre {{vm.data | json : 2}}
