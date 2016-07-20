@@ -1,6 +1,6 @@
 import jwt      from 'jwt-simple';
 import moment   from 'moment';
-import config   from './config';
+import {TOKEN_SECRET}   from './config';
 import User     from '../api/users/user.model';
 
 export const decodeToken = (req, res, next) => {
@@ -12,7 +12,7 @@ export const decodeToken = (req, res, next) => {
 
   var payload = null;
   try {
-    payload = jwt.decode(token, config.TOKEN_SECRET);
+    payload = jwt.decode(token, TOKEN_SECRET);
   }
   catch (err) {
     return res.status(401).send({ message: err.message });
@@ -44,7 +44,7 @@ export const createJWT = (user) => {
     iat: moment().unix(),
     exp: moment().add(14, 'days').unix()
   };
-  return jwt.encode(payload, config.TOKEN_SECRET);
+  return jwt.encode(payload, TOKEN_SECRET);
 }
 
 

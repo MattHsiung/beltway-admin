@@ -3,11 +3,23 @@ class ApiController {
     this.apiService = apiService;
   }
 
-  $onInit() {
+  getData() {
   	this.apiService.getData(
-  		'CandidateBio.getBio',
-  		'candidateId=9490'
+  		this.selectedCategory,
+  		this.selectedAction,
+  		this.selectedOptions
     ).then(data => this.data = data);
+  }
+
+  getActions() {
+  	if(this.actions) return;
+  	this.apiService.getActions()
+  		.then(actions => this.actions = actions);
+  }
+
+  $onInit() {
+  	this.selectedOptions = null;
+  	this.action = null;
   }
 }
 

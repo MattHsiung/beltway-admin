@@ -18,7 +18,9 @@ try {
   envConfig = {};
 }
 
-module.exports = {
+const ENV_CONFIG = {
   ...config, 
   ...envConfig
 };
+
+export default ENV_CONFIG;

@@ -1,10 +1,13 @@
-import router			from 'express';
+import router						from 'express';
 import * as controller	from './vs.controller';
-import {verifyUser}		from '../../auth/auth-util';
+import {verifyUser}			from '../../auth/auth-util';
 
 const VsRouter = router();
 
 VsRouter.route('/')
-  .get(verifyUser, controller.get)
+  .post(verifyUser, controller.post);
+
+VsRouter.route('/actions')
+	.get(controller.get);
 
 export default VsRouter;

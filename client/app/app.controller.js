@@ -1,12 +1,7 @@
 class AppController {
-	constructor(AuthFactory, $mdSidenav) {
+	constructor(AuthFactory) {
 		this.auth = null;
-		this.$mdSidenav = $mdSidenav;
 		this.AuthFactory = AuthFactory;
-	}
-
-	close() {
-		this.$mdSidenav('left').toggle()
 	}
 
 	$onInit() {
@@ -15,6 +10,6 @@ class AppController {
     }
 };
 
-AppController.$inject = ['AuthFactory', '$mdSidenav'];
+AppController.$inject = ['AuthFactory'];
 
 export default AppController;

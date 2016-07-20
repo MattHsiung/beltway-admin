@@ -1,5 +1,5 @@
 class LoginController {
-    constructor (AuthFactory, $state, $auth) {
+    constructor (AuthFactory, $state, $auth, $mdToast) {
         this.error = null;
         this.loginInfo = {};
         this.signupInfo = {};
@@ -7,17 +7,26 @@ class LoginController {
         this.AuthFactory = AuthFactory;
         this.$state = $state;
         this.$auth = $auth;
+        this.$mdToast = $mdToast;
     }
     
     resetError() {
         this.error = null;
     }
 
+    toast(message) {
+        this.$mdToast.show(
+            this.$mdToast.simple()
+            .textContent(message)
+            .hideDelay(3000)
+        );
+    }
+
     login(loginInfo) {
         this.error = null;
         this.AuthFactory.login(loginInfo)
             .then(message => {
-                (message) ? this.error = message : this.$state.go('home');
+                (message) ? this.toast(message) : this.$state.go('home');
             });
     }
 
@@ -37,6 +46,6 @@ class LoginController {
     }
 };
 
-LoginController.$inject = ['AuthFactory', '$state', '$auth'];
+LoginController.$inject = ['AuthFactory', '$state', '$auth', '$mdToast'];
 
 export default LoginController;

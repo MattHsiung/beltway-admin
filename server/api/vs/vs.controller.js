@@ -1,13 +1,34 @@
-import request     from 'request';
-import _    from 'lodash';
+import request      from 'request';
+import _            from 'lodash';
+import {VS_API_KEY} from '../../auth/config'
+import actions      from './actions';
 
-export const get = (req, res, next) => {
-  request.get({ 
-      // url: `http://api.votesmart.org/${req.action}?${req.params}&key=c355a94e241d247d09a331bf891b7267&o=JSON`, 
-      url: 'http://api.votesmart.org/CandidateBio.getBio?key=c355a94e241d247d09a331bf891b7267&candidateId=9490&o=JSON',
+const getUrl = (category, action, input) => {
+  var inputString = '';
+
+  for(var type in input) {
+    inputString += `&${type}=${input[type]}`;
+  };
+
+	return `http://api.votesmart.org/${category}.${action.action}?key=${VS_API_KEY}${inputString}&o=JSON`
+};
+
+export const post = (req, res, next) => {
+	var {category, action, input} = req.body;
+
+  request.get({
+      url: getUrl(category, action, input),
       json: true 
     }, 
     (err, response) => {
-      res.send(response.body);
+      console.log(err, response.body)
+    	if(response.body.error){
+        return res.status(400).send({ message: response.body.error.errorMessage });
+      } 
+      return res.send(response.body[action.output]);
   });
+};
+
+export const get = (req, res, next) => {
+  res.json(actions);
 };

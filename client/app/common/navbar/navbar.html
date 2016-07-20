@@ -1,24 +1,23 @@
-<nav class="navbar">
-  <div class="logo nav-links">
-    <a ui-sref="home" class="nav-link" ui-sref-active="isActive">
-      <img ng-src="http://s32.postimg.org/kmz8cz8xh/FSGX_logo_lg.png">
-    </a>
-  </div>
-  <div class="nav-links">
-    <a ui-sref="home" class="nav-link" ui-sref-active="isActive">
-      Home
-    </a>
-    <a ng-if="!vm.user" ui-sref="login" class="nav-link" ui-sref-active="isActive">
-      Login
-    </a>
-    <a ng-if="vm.user" href="#" ng-click="vm.logout()" class="nav-link">
-      Logout
-    </a>
-    <a ui-sref="members" class="nav-link" ui-sref-active="isActive">
-      MembersOnly
-    </a>   
-    <a ng-if="vm.user" class="nav-link accent">
+<md-nav-bar md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links" md-theme="default">
+  <md-nav-item md-nav-sref="login" name="page1">
+    Users
+    <md-icon>person</md-icon>
+  </md-nav-item>
+  <md-nav-item md-nav-sref="api" name="page2">
+    API
+    <md-icon>rss_feed</md-icon>
+  </md-nav-item>
+  <md-nav-item md-nav-sref="members" name="page3">
+    Analytics
+    <md-icon>equalizer</md-icon>
+  </md-nav-item>
+  <span flex></span>
+  <md-nav-item md-nav-sref="account" name="account" ng-if="vm.user">
       {{vm.user.displayName}}
-    </a>   
-  </div>
-</nav>
+      <md-icon>equalizer</md-icon>
+  </md-nav-item>
+  <md-nav-item md-nav-sref="home" ng-click="vm.logout()" ng-if="vm.user">
+      Logout
+      <md-icon>key</md-icon>
+  </md-nav-item>
+</md-nav-bar>

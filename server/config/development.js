@@ -1,7 +1,7 @@
 module.exports = {
   logging: true,
-  seed: true,
+  seed: false,
   db: {
-    url: 'mongodb://localhost/fsg-x'
+    url: 'mongodb://localhost/BELTWAY_ADMIN_DEV'
   }
 };
