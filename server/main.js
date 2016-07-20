@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 import app from './server';
 import config from './config/config';
 
-mongoose.connect(config.db.url);
+mongoose.connect(process.env.MONGODB_URI || config.db.url);
 console.log(chalk.green.bold('MONGO-DB CONNECTED'));
 
 app.listen(config.port, () => {
