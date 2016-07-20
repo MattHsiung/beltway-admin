@@ -1,6 +1,6 @@
 module.exports = {
   logging: false,
   db: {
-    url: 'process.env.MONGO_URL'
+    url: 'process.env.MONGODB_URI'
   }
 };

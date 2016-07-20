@@ -1,7 +1,7 @@
 {
-  "name": "FSG-X",
+  "name": "BELTWAY-GPS-ADMIN",
   "version": "1.0.0",
-  "description": "MEAN stack starter building upon NG6-starter and FSG",
+  "description": "Admin site for Beltway-GPS",
   "main": "index.js",
   "babel": {
     "plugins": [
@@ -15,7 +15,7 @@
   "scripts": {
     "start": "nodemon --watch server -e js server/start.js",
     "test": "karma start",
-    "seed": "server/seedDB.js"
+    "postinstall": "gulp webpack"
   },
   "dependencies": {
     "angular": "^1.5.0",
