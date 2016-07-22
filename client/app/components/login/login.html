@@ -53,11 +53,11 @@
         <label>Password</label>
         <input type="password" ng-model="vm.signupInfo.password" id="login-password" autocomplete="off">
       </md-input-container>
+      <md-input-container>
+        <label>Admin Key</label>
+        <input type="password" ng-model="vm.signupInfo.adminKey" id="admin-key" autocomplete="off">
+      </md-input-container>
       <md-button class="md-raised md-accent" type="submit">Signup</md-button>
     </form>
   </div>
 </md-content> 
-
-<alert ng-show="vm.error" ng-click="vm.resetError()">
-    <h4>{{ vm.error }}</h4>
-</alert>

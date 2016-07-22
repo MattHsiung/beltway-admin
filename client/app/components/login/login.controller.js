@@ -34,14 +34,14 @@ class LoginController {
         this.error = null;
         this.AuthFactory.signup(signupInfo)
             .then(message => {
-                (message) ? this.error = message : this.$state.go('home');
+                (message) ? this.toast(message) : this.$state.go('home');
             });
     }
 
     authenticate(provider) {
         this.AuthFactory.authenticate(provider)
             .then(message => {
-                (message) ? this.error = message : this.$state.go('home');
+                (message) ? this.toast(message) : this.$state.go('home');
             });
     }
 };

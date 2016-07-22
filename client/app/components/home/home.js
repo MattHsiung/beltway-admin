@@ -14,7 +14,8 @@ let homeModule = angular.module('home', [
   $stateProvider
     .state('home', {
       url: '/',
-      template: '<home user="vm.auth.user"></home>'
+      template: '<home user="vm.auth.user"></home>',
+      requireAuth: true
     });
 })
 

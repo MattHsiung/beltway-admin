@@ -18,7 +18,7 @@ angular.module('app', [
 .config(($urlRouterProvider, $locationProvider, $mdThemingProvider) => {
   "ngInject";
   $locationProvider.html5Mode(true).hashPrefix('!');
-  $urlRouterProvider.otherwise('/');
+  $urlRouterProvider.otherwise('/login');
   $urlRouterProvider.when('/auth/:provider', () => window.location.reload());
   $mdThemingProvider.theme('default')
     .primaryPalette('blue')
@@ -32,8 +32,8 @@ angular.module('app', [
   $rootScope.$on('$stateChangeStart', (event, toState, toParams) => {
 
     if (toState.requireAuth && !AuthFactory.isAuthenticated()){
-      $state.go("login");
       event.preventDefault();
+      $state.go("login");
     };
   });
 });

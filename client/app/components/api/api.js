@@ -13,7 +13,8 @@ let apiModule = angular.module('api', [
   $stateProvider
     .state('api', {
       url: '/apidata',
-      template: '<api user="vm.auth.user"></api>'
+      template: '<api user="vm.auth.user"></api>',
+      requireAuth: true
     });
 })
 

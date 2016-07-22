@@ -1,23 +1,27 @@
 <md-nav-bar md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links" md-theme="default">
-  <md-nav-item md-nav-sref="login" name="page1">
+  <!-- <md-nav-item md-nav-sref="login" name="page1">
     Users
     <md-icon>person</md-icon>
+  </md-nav-item> -->
+  <md-nav-item md-nav-sref="home" name="home">
+    Home
+    <md-icon>home</md-icon>
   </md-nav-item>
-  <md-nav-item md-nav-sref="api" name="page2">
+  <md-nav-item md-nav-sref="api" name="api">
     API
     <md-icon>rss_feed</md-icon>
   </md-nav-item>
-  <md-nav-item md-nav-sref="members" name="page3">
+  <!-- <md-nav-item md-nav-sref="members" name="page3">
     Analytics
     <md-icon>equalizer</md-icon>
-  </md-nav-item>
+  </md-nav-item> -->
   <span flex></span>
-  <md-nav-item md-nav-sref="account" name="account" ng-if="vm.user">
+  <md-nav-item md-nav-sref="home" name="home" ng-if="vm.user">
       {{vm.user.displayName}}
       <md-icon>equalizer</md-icon>
   </md-nav-item>
   <md-nav-item md-nav-sref="home" ng-click="vm.logout()" ng-if="vm.user">
       Logout
-      <md-icon>key</md-icon>
+      <md-icon>lock</md-icon>
   </md-nav-item>
 </md-nav-bar>
